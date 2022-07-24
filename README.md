@@ -15,6 +15,18 @@ para o uso é necessário:
 
 ## Roteiro de implementação 
 
+- [x] criação do devcontainer
+- [x] docker-compose configurando e orquestrando dockers de dependencias
+- [x] instalando plugins do vscode para ajudar no desenvolviemnto
+- [x] instalação do Django e suas dependencias
+- [ ] configurando aplicação e ambiente do django
+
+
 ## Ajudas e curiosidades
 
 ## Referencias
+
+ - https://getbootstrap.com/
+ - https://docs.celeryq.dev/en/stable/
+ - https://docs.djangoproject.com/en/4.0/
+ - https://www.youtube.com/watch?v=AZNp1CfOjtE
