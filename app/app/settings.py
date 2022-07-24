@@ -22,7 +22,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-#auto geração de chaves para django 
+# #auto geração de chaves para django
+
 SECRET_KEY = uuid4()
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'app.wsgi.application'
 #configuração do channels ASGI
 ASGI_APPLICATION = 'app.asgi.application'
 #configuração do celery apontando para um broker
-#broker é a fila de tarefas que vai ser consumida 
+#broker é a fila de tarefas que vai ser consumida
 CELERY_BROKER_URL = 'redis://redis:6379'
 
 
@@ -92,7 +93,7 @@ DATABASES = {
     }
 }
 
-#definicao de filas para serem utilizadas 
+#definicao de filas para serem utilizadas
 CHANNEL_LAYERS = {
     'default':{
         'BACKEND':'channels_redis.core.RedisChannelLayer',
@@ -145,3 +146,5 @@ STATICFILES_DIRS = [
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+URL_COINS = 'https://api.coingecko.com/api/v3/'

@@ -1,3 +1,4 @@
+"""Consumer Crypto"""
 import json
 from channels.generic.websocket import AsyncWebsocketConsumer
 
@@ -16,6 +17,6 @@ class CryptoConsumer(AsyncWebsocketConsumer):
         await self.channel_layer.group_discard('crypto', self.channel_name)
 
     async def send_new_data(self, event):
+        """Send new Data to queue redis"""
         new_data = event['text']
         await self.send(json.dumps(new_data))
-

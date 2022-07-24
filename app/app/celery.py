@@ -17,7 +17,7 @@ app.conf.beat_schedule = {
     }
 }
 
-#definindo autodiscovery qnd for procurar uma tarefa 
+#definindo autodiscovery qnd for procurar uma tarefa
 app.autodiscover_tasks()
 
 # é definido no setting um broker para celery

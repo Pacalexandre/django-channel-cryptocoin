@@ -1,4 +1,5 @@
 """tarefas"""
+from django.conf import settings
 import requests
 from asgiref.sync import async_to_sync
 from django.forms.models import model_to_dict
@@ -13,7 +14,8 @@ channel_layer = get_channel_layer()
 @shared_task
 def get_coins_data():
     """Tarefa para buscar as crypto e carregalas na fila do redis """
-    url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+    uri='coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
+    url = f'{settings.URL_COINS}{uri}'
     # vamos recupera os dados e salvar no banco de dados
     data = requests.get(url).json()
 
