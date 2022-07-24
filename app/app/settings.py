@@ -31,7 +31,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 # Application definition
-
+# para funcionanmento do websocket é necessário instalar o channels
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'channels',
     'crypto',
 ]
 
@@ -74,7 +75,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
-
+#configuração do channels ASGI
+ASGI_APPLICATION = 'app.asgi.application'
 #configuração do celery apontando para um broker
 #broker é a fila de tarefas que vai ser consumida 
 CELERY_BROKER_URL = 'redis://redis:6379'
@@ -90,6 +92,15 @@ DATABASES = {
     }
 }
 
+#definicao de filas para serem utilizadas 
+CHANNEL_LAYERS = {
+    'default':{
+        'BACKEND':'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [('redis', 6379)],
+        }
+    }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

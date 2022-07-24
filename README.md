@@ -26,7 +26,10 @@ para o uso é necessário:
 - [x] instalando e configurando celery para realizar as buscas
 - [x] configurando admin model no django admin e criando superuser
 - [x] rodando celery gravando banco de dados e registrando dados na model
-- [x] 
+- [x] instalando e configurando channels para websocket
+- [x] criando rotas de websocket para aplicacão em routing 
+- [x] chamada das tarefas dentro do channels layers
+- [x]
 
 
 ## Ajudas e curiosidades

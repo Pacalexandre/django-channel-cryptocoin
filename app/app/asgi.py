@@ -11,6 +11,16 @@ import os
 
 from django.core.asgi import get_asgi_application
 
+#configurando protocolo websock no django 
+from channels.auth import AuthMiddlewareStack
+from channels.routing import URLRouter
+from channels.routing import ProtocolTypeRouter
+from crypto.routing import ws_urlpatterns
+
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
 
-application = get_asgi_application()
+#incluindo ProtocaltypeRouter on asgi channels
+application = ProtocolTypeRouter({
+    'http': get_asgi_application(),
+    'websocket': AuthMiddlewareStack(URLRouter(ws_urlpatterns))
+})

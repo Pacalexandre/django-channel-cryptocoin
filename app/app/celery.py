@@ -2,14 +2,14 @@
 import os
 
 from celery import Celery
-#carregando as variaveis do django 
+#carregando as variaveis do django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'app.settings')
 #abrindo uma instancia do Celery
 app = Celery('app')
 #colocando na configuração do django um namespace para as tarefas
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
-#definicao de shchedule busca de dados
+#definicao de shchedule busca de dados atravez do celery
 app.conf.beat_schedule = {
     'get_coins_30s':{
         'task': 'crypto.tasks.get_coins_data',

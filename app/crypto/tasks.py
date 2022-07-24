@@ -1,15 +1,20 @@
 """tarefas"""
 import requests
+from asgiref.sync import async_to_sync
 from django.forms.models import model_to_dict
-from .models import Coin
 from celery import shared_task
+from channels.layers import get_channel_layer
+from .models import Coin
+
+#criando um sincronismo de asyncono to sync
+channel_layer = get_channel_layer()
 
 
 @shared_task
 def get_coins_data():
     """Tarefa para buscar as crypto e carregalas na fila do redis """
     url = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false'
-    # vamos recupera os dados e salvar no banco de dados 
+    # vamos recupera os dados e salvar no banco de dados
     data = requests.get(url).json()
 
     #lista de coins atualizada para envio da fila
@@ -19,7 +24,7 @@ def get_coins_data():
     for coin in data:
         objeto, created = Coin.objects.get_or_create(symbol=coin['symbol'])
 
-        #testando o objeto de criação se teve sucesso ou não 
+        #testando o objeto de criação se teve sucesso ou não
         if created:
             print(f'Registro Criado {created}')
 
@@ -44,3 +49,5 @@ def get_coins_data():
         new_data.update({'state':state})
 
         coins.append(new_data)
+
+    async_to_sync(channel_layer.group_send)('crypto',{'type': 'send_new_data', 'text':coins})
