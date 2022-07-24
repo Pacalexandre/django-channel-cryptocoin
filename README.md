@@ -19,7 +19,10 @@ para o uso é necessário:
 - [x] docker-compose configurando e orquestrando dockers de dependencias
 - [x] instalando plugins do vscode para ajudar no desenvolviemnto
 - [x] instalação do Django e suas dependencias
-- [ ] configurando aplicação e ambiente do django
+- [x] configurando aplicação e ambiente do django
+- [x] criando html com bootstrap vue e configurações de rota
+- [x] definindo diretorios de static e subindo pagina html
+- [x] 
 
 
 ## Ajudas e curiosidades
