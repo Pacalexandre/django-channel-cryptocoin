@@ -22,13 +22,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+#auto geração de chaves para django 
 SECRET_KEY = uuid4()
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
 
 # Application definition
 
@@ -54,6 +54,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'app.urls'
 
+#configuracao de templates adicionando joinpath
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -73,6 +74,10 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'app.wsgi.application'
+
+#configuração do celery apontando para um broker
+#broker é a fila de tarefas que vai ser consumida 
+CELERY_BROKER_URL = 'redis://redis:6379'
 
 
 # Database
@@ -121,6 +126,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_URL = '/static/'
+#definindo staticfiles_dirs para acessar arquivos estaticos ao projeto
 STATICFILES_DIRS = [
     BASE_DIR.joinpath('static')
 ]

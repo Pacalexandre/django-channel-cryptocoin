@@ -23,7 +23,10 @@ para o uso é necessário:
 - [x] criando html com bootstrap vue e configurações de rota
 - [x] definindo diretorios de static e subindo pagina html
 - [x] chamando a API de cryptos montando a pagina com os dados
-- [x]
+- [x] instalando e configurando celery para realizar as buscas
+- [x] configurando admin model no django admin e criando superuser
+- [x] rodando celery gravando banco de dados e registrando dados na model
+- [x] 
 
 
 ## Ajudas e curiosidades
