@@ -22,7 +22,8 @@ para o uso é necessário:
 - [x] configurando aplicação e ambiente do django
 - [x] criando html com bootstrap vue e configurações de rota
 - [x] definindo diretorios de static e subindo pagina html
-- [x] 
+- [x] chamando a API de cryptos montando a pagina com os dados
+- [x]
 
 
 ## Ajudas e curiosidades
@@ -32,4 +33,7 @@ para o uso é necessário:
  - https://getbootstrap.com/
  - https://docs.celeryq.dev/en/stable/
  - https://docs.djangoproject.com/en/4.0/
- - https://www.youtube.com/watch?v=AZNp1CfOjtE
+ - https://www.youtube.com/watch?v=
+ - https://api.coingecko.com/api/v3/coins/markets
+ 
+ 
