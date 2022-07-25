@@ -59,6 +59,14 @@ http://localhost:8000
 
 ## Ajudas e curiosidades
 
+- Depois de baixar o processo e queira ver os dados na tabela do sqlite é necessario criar um superuser
+```bash 
+# na pasta do projeto 
+python manage.py createsuperuser
+# siga as instuções ...
+
+```
+
 Nesse desenvolviemto, houve problemas com as versão do site da gecko,  
 com html, fechamento de tags para funcionamento do vue, mas todos os problemas foram resolvidos  
 o uso do devcontainer contribuiu muito para validação do projeto tando em ambiente windows com linux  
