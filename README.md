@@ -1,5 +1,7 @@
 # django-channel-cryptocoin
-!()[app/static/page.png]
+
+![](app/static/page.png)
+
 Uma aplicação com Django Bootsrap Websocket Vue channels redis - consulting realtime devcontainer  
 Nesse exemplo vamos criar uma pagina web que vai consultar um website de crypto moedas e atualizar  
 automaticamente com websockets, utilizadno redis e vue utilizando decontainer da microsoft.
@@ -25,11 +27,11 @@ cd /app
 
 #terminal 2
 cd /app
-celery -A app beat
+celery -A app beat -l INFO
 
 #terminal 3
 cd/app
-celery -A app worker
+celery -A app worker -l INFO
 
 #abra varias instancias de browser e veja o funcionanmento
 http://localhost:8000
