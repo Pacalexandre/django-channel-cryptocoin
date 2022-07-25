@@ -34,9 +34,9 @@
                         <tr v-for="coin in coins" :key="coin.id">
                             <td class="align-middle">{{ coin.rank }}</td>
                             <td class="align-middle">
-                                <img :src=coin.image alt="logo" class="px-2" width="50px">
-                                {{ coin.name }}
+                                <img :src="coin.image" class="px-2" width="50" alt=""></img>
                                 <small class="text-muted px-2">{{ coin.symbol }}</small>
+                                {{ coin.name }}
                             </td>
                             <td class="align-middle" :class="{'raise': coin.state === 'raise', 'fall': coin.state === 'fall'}">{{ coin.price }}</td>
                         </tr>

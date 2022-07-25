@@ -1,6 +1,8 @@
 # django-channel-cryptocoin
+!()[app/static/page.png]
 Uma aplicação com Django Bootsrap Websocket Vue channels redis - consulting realtime devcontainer  
-Nesse exemplo vamos criar uma pagina web que vai consultar um website de crypto moedas e atualizar automaticamente com websockets, utilizadno redis e vue utilizando decontainer da microsoft.
+Nesse exemplo vamos criar uma pagina web que vai consultar um website de crypto moedas e atualizar  
+automaticamente com websockets, utilizadno redis e vue utilizando decontainer da microsoft.
 
 para o uso é necessário:  
 - [x] pré requisitos
@@ -11,7 +13,28 @@ para o uso é necessário:
     - [x] [documentação](https://code.visualstudio.com/docs/remote/containers)
 
 ## Get Started
-...  
+
+Baixe o repositorio em sua maquina tenha em mente que precisa dos pré requisitos  
+Rode o devcontainer 
+Abra 3 terminais do Visual Studio e execute esses comandos abaixo:  
+
+```bash
+#terminal 1
+cd /app
+./manager runserver
+
+#terminal 2
+cd /app
+celery -A app beat
+
+#terminal 3
+cd/app
+celery -A app worker
+
+#abra varias instancias de browser e veja o funcionanmento
+http://localhost:8000
+
+```
 
 ## Roteiro de implementação 
 
@@ -29,10 +52,14 @@ para o uso é necessário:
 - [x] instalando e configurando channels para websocket
 - [x] criando rotas de websocket para aplicacão em routing 
 - [x] chamada das tarefas dentro do channels layers
-- [x]
+- [x] configuração dos consumers e ligação na pagina com vue3
 
 
 ## Ajudas e curiosidades
+
+Nesse desenvolviemto, houve problemas com as versão do site da gecko,  
+com html, fechamento de tags para funcionamento do vue, mas todos os problemas foram resolvidos  
+o uso do devcontainer contribuiu muito para validação do projeto tando em ambiente windows com linux  
 
 ## Referencias
 
