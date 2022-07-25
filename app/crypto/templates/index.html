@@ -11,13 +11,14 @@
     <link rel="stylesheet" href={% static 'styles.css' %}>
     <script src="https://unpkg.com/vue@3"></script>
 
+
     <title>Cryptocoins</title>
 </head>
 {% verbatim %}
 
 <body>
     <div id="app" class="container">
-        <row>
+        <div>
             <div class="col-10 mx-auto mt-5">
                 <h1>Cryptocoins</h1>
                 <table class="table table-hover">
@@ -33,7 +34,7 @@
                         <tr v-for="coin in coins" :key="coin.id">
                             <td class="align-middle">{{ coin.rank }}</td>
                             <td class="align-middle">
-                                <img :src="coin.image" alt="logo" class="px-2" width="50px">
+                                <img :src=coin.image alt="logo" class="px-2" width="50px">
                                 {{ coin.name }}
                                 <small class="text-muted px-2">{{ coin.symbol }}</small>
                             </td>
@@ -42,32 +43,10 @@
                     </tbody>
                 </table>
             </div>
-        </row>
+        </div>
     </div>
     {% endverbatim %}
-
-    <script>
-        const { createApp } = Vue;
-        const CoinsApp = {
-            data() {
-                return {
-                    coin: '',
-                    coins: null
-                }
-            },
-            created() {
-                const socket = new WebSocket(`ws://${window.location.host}/ws/crypto/`);
-                let _this = this;
-                socket.onmessage = function (event) {
-                    _this.coins = JSON.parse(event.data);
-                    console.log(_this.coins[0].image)
-                }
-            }
-
-        }
-        createApp(CoinsApp).mount('#app')
-    </script>
-
+    <script src={% static 'prod.js' %}></script>
 </body>
 
 </html>
